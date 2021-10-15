@@ -1,0 +1,8 @@
+
+// ! getBalance()
+
+// ! withdraw()
+
+// ! deposit()
+
+// ! validatePin

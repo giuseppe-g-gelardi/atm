@@ -1,0 +1,23 @@
+{
+  "name": "atm",
+  "version": "1.0.0",
+  "description": "atm project for dCC mern class",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giuseppe-g-gelardi/atm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giuseppe-g-gelardi/atm/issues"
+  },
+  "homepage": "https://github.com/giuseppe-g-gelardi/atm#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
