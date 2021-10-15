@@ -2,6 +2,8 @@ const prompt = require("prompt-sync")
 const { balance, withdraw, deposit, validation } = require('./atm')
 
 
+
+
 let accountBalance = balance
 console.log(accountBalance)
 
