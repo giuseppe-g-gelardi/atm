@@ -11,66 +11,43 @@ const getBalance = (accountBalance) => {
 // getBalance(balance)
 
 // ! withdraw
-// function withdraw(accountBalance) {
-//   // let prompt = require('prompt-sync')
-//   let withdrawAmount = parseInt(prompt('how much would you like to take out \n'))
-  
-//   if (withdrawAmount <= balance) {
-//     accountBalance -= withdrawAmount
-//     console.log(`taking ${withdrawAmount} from your account. 
-//     \nyour new balance is: ${accountBalance} \n`)
-//   } else if (withdrawAmount > accountBalance) {
-//     console.log('insufficient funds')
-//   } else {
-//     console.log('invalid')
-//   }
-// }
-// withdraw(balance)
-
-// ! withdraw 2
 
 function withdraw(accountBalance) {
   let transactionComplete = false
 
   console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to withdraw?`)
   let userInput = prompt()
-  let withdrawAmount = parseInt(userInput) 
- 
-  if (isNaN(userInput)) {
-    console.log('invalid input, please enter only numbers')
-    withdraw(accountBalance)
+  let withdrawAmount = parseInt(userInput)
+
+  // function called to break out of the loop and return to the main menu
+  function isComplete(){
+    console.log(`\nType "done" to return to the main menu\n`)
+    let isCompletePrompt = prompt()
+
+    if (isCompletePrompt === 'done') {
+      transactionComplete = true
+    }
   }
 
-  if (withdrawAmount <= accountBalance) {
-    accountBalance -= withdrawAmount
-    console.log(`\ntaking ${withdrawAmount} from your account. 
-    \nyour new balance is: ${accountBalance} \n`)
-  } else if (withdrawAmount > accountBalance) {
-    console.log('insufficient funds')
-  } 
+  while (!transactionComplete) {
+    // edge case validating input to be only numbers
+    if (isNaN(userInput)) {
+      console.log('invalid input, please enter only numbers')
+      withdraw(accountBalance)
+    }
 
+    if (withdrawAmount <= accountBalance) {
+      accountBalance -= withdrawAmount
+      console.log(`\ntaking ${withdrawAmount} from your account. 
+      \nyour new balance is: ${accountBalance}\n`)
+      isComplete()
+    } else if (withdrawAmount > accountBalance) {
+      console.log('insufficient funds')
+    } 
+  }
+  return accountBalance
 }
 withdraw(balance)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
