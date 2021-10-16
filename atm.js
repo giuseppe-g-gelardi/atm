@@ -1,14 +1,16 @@
 const prompt = require('prompt-sync')();
 const { balance, pin } = require('./account')
+const { wallet } = require('./wallet')
 
 
 // ! getBalance()
 
-const getBalance = (accountBalance) => {
+function getBalance(accountBalance) {
   console.log(accountBalance)
   return accountBalance
 }
 // getBalance(balance)
+
 
 // ! withdraw
 
@@ -21,7 +23,7 @@ function withdraw(accountBalance) {
 
   // function called to break out of the loop and return to the main menu
   function isComplete(){
-    console.log(`\nType "done" to return to the main menu\n`)
+    console.log(`\nType "done" to complete transaction\n`)
     let isCompletePrompt = prompt()
 
     if (isCompletePrompt === 'done') {
@@ -47,43 +49,78 @@ function withdraw(accountBalance) {
   }
   return accountBalance
 }
-withdraw(balance)
+// withdraw(balance)
 
 
 
 // ! deposit()
-const deposit = (accountBalance) => {
-  console.log('this function deposits money')
+function deposit(accountBalance) {
+  let transactionComplete = false
+
+  console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to deposit?`)
+  let userInput = prompt()
+  let depositAmount = parseInt(userInput)
+
+  function isComplete(){
+    console.log(`\nType "done" to complete transaction\n`)
+    let isCompletePrompt = prompt()
+
+    if (isCompletePrompt === 'done') {
+      transactionComplete = true
+    }
+  }
+
+  while (!transactionComplete) {
+    // edge case validating input to be only numbers
+    if (isNaN(userInput)) {
+      console.log('invalid input, please enter only numbers')
+      deposit(accountBalance)
+    }
+
+    if (depositAmount >= 0) {
+      accountBalance = accountBalance + depositAmount
+      console.log(`\nAdding ${depositAmount} to your account. 
+      \nyour new balance is: ${accountBalance}\n`)
+      isComplete()
+    }
+
+    // if (depositAmount > wallet) {
+    //   console.log('you do not have enough money')
+    // }
+
+
+
+  }
+  return accountBalance
 }
-deposit(balance)
+// deposit(balance)
 
 
 
 // ! validatePin
-// function validatePin(userPin) {
-//   let pinValidated = false
-//   let count = 0
-//   let attempts = 2
+function validatePin(userPin) {
+  let pinValidated = false
+  let count = 0
+  let attempts = 2
 
-//   while (count < 3) {
-//   let inputPin = parseInt(prompt('what is your pin? '))
+  while (count < 3) {
+  let inputPin = parseInt(prompt('what is your pin? '))
 
-//     if (inputPin == userPin) {
-//       console.log('thank you')
-//       pinValidated = true;
-//       break;
-//     } else {
-//       console.log(`that is not the correct pin,\n \nyou have ${attempts} attempts left 
-//       \nYOU WILL BE LOCKED OUT AFTER 3 ATTEMPTS! \n`)
-//       count++
-//       attempts--
-//     }
-//     if (attempts === 0) {
-//       console.log('you have been logged out, come back later')
-//     }
-//   }
-// }
-
+    if (inputPin == userPin) {
+      console.log('thank you')
+      pinValidated = true;
+      break;
+    } else {
+      console.log(`that is not the correct pin,\n \nyou have ${attempts} attempts left 
+      \nYOU WILL BE LOCKED OUT AFTER 3 ATTEMPTS! \n`)
+      count++
+      attempts--
+    }
+    if (attempts === 0) {
+      console.log('you have been logged out, come back later')
+    }
+  }
+}
 // validatePin(pin)
 
 
@@ -96,9 +133,5 @@ module.export = {
   balance: getBalance,
   withdraw: withdraw,
   deposit: deposit,
-  // validation: validatePin
+  validation: validatePin
 }
-
-
-
-
