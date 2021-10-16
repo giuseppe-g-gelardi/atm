@@ -10,33 +10,75 @@ const getBalance = (accountBalance) => {
 }
 // getBalance(balance)
 
-
 // ! withdraw
-function withdraw(accountBalance) {
-  // let prompt = require('prompt-sync')
-  let withdrawAmount = parseInt(prompt('how much would you like to take out \n'))
+// function withdraw(accountBalance) {
+//   // let prompt = require('prompt-sync')
+//   let withdrawAmount = parseInt(prompt('how much would you like to take out \n'))
   
-  if (withdrawAmount <= balance) {
-    accountBalance = accountBalance - withdrawAmount
-    console.log(`taking ${withdrawAmount} from your account. 
+//   if (withdrawAmount <= balance) {
+//     accountBalance -= withdrawAmount
+//     console.log(`taking ${withdrawAmount} from your account. 
+//     \nyour new balance is: ${accountBalance} \n`)
+//   } else if (withdrawAmount > accountBalance) {
+//     console.log('insufficient funds')
+//   } else {
+//     console.log('invalid')
+//   }
+// }
+// withdraw(balance)
+
+// ! withdraw 2
+
+function withdraw(accountBalance) {
+  let transactionComplete = false
+
+  console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to withdraw?`)
+  let userInput = prompt()
+  let withdrawAmount = parseInt(userInput) 
+ 
+  if (isNaN(userInput)) {
+    console.log('invalid input, please enter only numbers')
+    withdraw(accountBalance)
+  }
+
+  if (withdrawAmount <= accountBalance) {
+    accountBalance -= withdrawAmount
+    console.log(`\ntaking ${withdrawAmount} from your account. 
     \nyour new balance is: ${accountBalance} \n`)
   } else if (withdrawAmount > accountBalance) {
     console.log('insufficient funds')
-    withdraw()
-  } else {
-    console.log('invalid')
-    withdraw()
-  }
+  } 
+
 }
 withdraw(balance)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ! deposit()
-const deposit = () => {
+const deposit = (accountBalance) => {
   console.log('this function deposits money')
 }
-deposit()
+deposit(balance)
 
 
 
