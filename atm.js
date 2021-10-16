@@ -120,6 +120,7 @@ function validatePin(userPin) {
       console.log('you have been logged out, come back later')
     }
   }
+  return pinValidated
 }
 // validatePin(pin)
 

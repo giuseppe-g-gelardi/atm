@@ -1,16 +1,27 @@
 const prompt = require("prompt-sync")()
-// const { balance, withdraw, deposit, validation } = require('./atm')
 const { getBalance, withdraw, deposit, validatePin } = require('./atm')
 const { balance, pin } = require('./account')
 
 
 
 
-function app() {
-  validatePin(pin)
+function app(userInput) {
+  console.log(`\n
+   _________________________________\n
+  |   ### Welcome to the atm! ###   |\n
+  |   What would you like to do??   |\n
+  |_________________________________|\n\n
+  |  Enter 1 to check your balance  |\n
+  |  Enter 2 to deposit funds       |\n
+  |  Enter 3 to withdraw funds      |\n
+  |_________________________________|\n
+  `)
+
+
+
 }
 
-app()
+app(prompt)
 
 
 // let accountBalance = balance
