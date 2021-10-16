@@ -125,13 +125,25 @@ function validatePin(userPin) {
 
 
 
-
-
-
-
-module.export = {
-  balance: getBalance,
+module.exports = {
+  getBalance: getBalance,
   withdraw: withdraw,
   deposit: deposit,
-  validation: validatePin
+  validatePin: validatePin
 }
+
+
+
+// module.export = {
+//   balance: getBalance,
+//   withdraw: withdraw,
+//   deposit: deposit,
+//   validation: validatePin
+// }
+
+// module.export = {
+//   getBalance,
+//   withdraw,
+//   deposit,
+//   validatePin
+// }

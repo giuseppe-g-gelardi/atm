@@ -1,11 +1,13 @@
 const prompt = require("prompt-sync")()
-const { balance, withdraw, deposit, validation } = require('./atm')
+// const { balance, withdraw, deposit, validation } = require('./atm')
+const { getBalance, withdraw, deposit, validatePin } = require('./atm')
+const { balance, pin } = require('./account')
 
-let validatePin = validation
+
 
 
 function app() {
-  // validatePin
+  validatePin(pin)
 }
 
 app()
