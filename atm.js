@@ -6,8 +6,10 @@ const { wallet } = require('./wallet')
 // ! getBalance()
 
 function getBalance(accountBalance) {
-  console.log(accountBalance)
-  return accountBalance
+  // console.log(accountBalance)
+  // return accountBalance
+
+  console.log(`Your account balance is $${accountBalance}`)
 }
 // getBalance(balance)
 

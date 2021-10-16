@@ -5,7 +5,7 @@ const { balance, pin } = require('./account')
 
 
 
-function app(userInput) {
+function app() {
   console.log(`\n
    _________________________________\n
   |   ### Welcome to the atm! ###   |\n
@@ -17,11 +17,25 @@ function app(userInput) {
   |_________________________________|\n
   `)
 
+  let userInput = prompt()
+  let userChoice = parseInt(userInput)
 
-
+  switch(userChoice) {
+    case 1:
+      getBalance(balance)
+      break;
+    case 2:
+      deposit(balance)
+      break;
+    case 3:
+      withdraw(balance)
+      break;
+    default:
+      app()
+  }
 }
 
-app(prompt)
+app()
 
 
 // let accountBalance = balance
