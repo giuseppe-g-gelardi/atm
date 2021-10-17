@@ -5,6 +5,7 @@ const { balance, pin } = require('./account')
 let validate = validatePin(pin)
 
 function app() {
+  console.clear()
   if (!validate) {
     validate
   } else {
@@ -15,19 +16,19 @@ app()
 
 function mainMenu() {
   console.clear()
-  // console.log(`\n
-  //  _________________________________\n
-  // |   ### Welcome to the atm! ###   |\n
-  // |   What would you like to do??   |\n
-  // |_________________________________|\n\n
-  // |  Enter 1 to check your balance  |\n
-  // |  Enter 2 to deposit funds       |\n
-  // |  Enter 3 to withdraw funds      |\n
-  // |  Enter 4 to end transaction     |\n
-  // |_________________________________|\n
-  // `)
+  console.log(`\n
+   _________________________________\n
+  |   ### Welcome to the atm! ###   |\n
+  |   What would you like to do??   |\n
+  |_________________________________|\n\n
+  |  Enter 1 to check your balance  |\n
+  |  Enter 2 to deposit funds       |\n
+  |  Enter 3 to withdraw funds      |\n
+  |  Enter 4 to end transaction     |\n
+  |_________________________________|\n
+  `)
 
-  console.log('what would you like to do?')
+  // console.log('what would you like to do?')
 
   let userInput = prompt()
   let userChoice = parseInt(userInput)
@@ -44,6 +45,10 @@ function mainMenu() {
     case 3:
       console.clear()
       withdraw(balance)
+      break;
+    case 4:
+      console.clear()
+      console.log('have a nice day!')
       break;
     default:
       app()

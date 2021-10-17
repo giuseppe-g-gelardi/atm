@@ -11,6 +11,7 @@ function getBalance(accountBalance) {
   // return accountBalance
 
   console.log(`Your account balance is $${accountBalance}`)
+  mainMenu()
 }
 // getBalance(balance)
 
@@ -99,57 +100,17 @@ function deposit(accountBalance) {
 // deposit(balance)
 
 
-// TODO simplify validatePin
-// ! validatePin
-// function validatePin(userPin) {
-//   let pinValidated = false
-//   let count = 0
-//   let attempts = 2
 
-//   while (count < 3) {
-//   let inputPin = parseInt(prompt('what is your pin? '))
-
-//     if (inputPin == userPin) {
-//       console.log('thank you')
-//       pinValidated = true;
-//       break;
-//     } else {
-//       console.log(`that is not the correct pin,\n \nyou have ${attempts} attempts left 
-//       \nYOU WILL BE LOCKED OUT AFTER 3 ATTEMPTS! \n`)
-//       count++
-//       attempts--
-//     }
-//     if (attempts === 0) {
-//       console.log('you have been logged out, come back later')
-//     }
-//   }
-//   return pinValidated
-// }
-// // validatePin(pin)
-
-
-
-
-
-// TODO simplify validatePin
 // ! validatePin
 function validatePin(userPin) {
+  console.clear()
   let pinValidated = false
   let count = 0
   let attempts = 2
 
+
   while (count < 3) {
-  let inputPin = parseInt(prompt(`\n
-  _________________________________\n
- |   ### Welcome to the atm! ###   |\n
- |Please enter your pin to continue|\n
- |_________________________________|\n\n
- |                                 |\n
- |     #      #      #      #      |\n
- |    (*)    (*)    (*)    (*)     |\n
- |                                 |\n
- |_________________________________|\n
-  `))
+  let inputPin = parseInt(prompt(`Please enter your pin: `))
 
     if (inputPin == userPin) {
       console.log('thank you')
@@ -179,3 +140,17 @@ module.exports = {
   deposit: deposit,
   validatePin: validatePin
 }
+
+
+
+// let inputPin = parseInt(prompt(`\n
+// _________________________________\n
+// |   ### Welcome to the atm! ###   |\n
+// |Please enter your pin to continue|\n
+// |_________________________________|\n\n
+// |                                 |\n
+// |     #      #      #      #      |\n
+// |    (*)    (*)    (*)    (*)     |\n
+// |                                 |\n
+// |_________________________________|\n
+// `))
