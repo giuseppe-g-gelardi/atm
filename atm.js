@@ -1,10 +1,9 @@
 const prompt = require('prompt-sync')();
 const { balance, pin } = require('./account')
-const { wallet } = require('./wallet')
+const wallet = require('./wallet')
 
 
 // ! getBalance()
-
 
 function getBalance(accountBalance) {
   console.log(`Your account balance is $${accountBalance}`)
@@ -120,9 +119,37 @@ function validatePin(userPin) {
   let count = 0
   let attempts = 2
 
+//   let pinPromptMessage = `\n
+// _________________________________\n
+// |   ### Welcome to the atm! ###   |\n
+// |Please enter your pin to continue|\n
+// |_________________________________|\n\n
+// |                                 |\n
+// |     #      #      #      #      |\n
+// |    (*)    (*)    (*)    (*)     |\n
+// |                                 |\n
+// |_________________________________|\n
+// `
+
+
+
 
   while (count < 3) {
-  let inputPin = parseInt(prompt(`Please enter your pin: `))
+  // let inputPin = parseInt(prompt(`Please enter your pin: `))
+  console.log(`\n
+  _________________________________\n
+  |   ### Welcome to the atm! ###   |\n
+  |Please enter your pin to continue|\n
+  |_________________________________|\n
+  |                                 |\n
+  |     #      #      #      #      |\n
+  |    (*)    (*)    (*)    (*)     |\n
+  |                                 |\n
+  |_________________________________|\n
+  `)
+
+  let userInput = prompt()
+  let inputPin = parseInt(userInput)
 
     if (inputPin == userPin) {
       console.log('thank you')
