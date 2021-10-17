@@ -5,6 +5,7 @@ const { wallet } = require('./wallet')
 
 // ! getBalance()
 
+
 function getBalance(accountBalance) {
   // console.log(accountBalance)
   // return accountBalance
@@ -86,7 +87,7 @@ function deposit(accountBalance) {
       isComplete()
     }
 
-    // if (depositAmount > wallet) {
+    // if (depositAmount > onHand) {
     //   console.log('you do not have enough money')
     // }
 
@@ -98,7 +99,39 @@ function deposit(accountBalance) {
 // deposit(balance)
 
 
+// TODO simplify validatePin
+// ! validatePin
+// function validatePin(userPin) {
+//   let pinValidated = false
+//   let count = 0
+//   let attempts = 2
 
+//   while (count < 3) {
+//   let inputPin = parseInt(prompt('what is your pin? '))
+
+//     if (inputPin == userPin) {
+//       console.log('thank you')
+//       pinValidated = true;
+//       break;
+//     } else {
+//       console.log(`that is not the correct pin,\n \nyou have ${attempts} attempts left 
+//       \nYOU WILL BE LOCKED OUT AFTER 3 ATTEMPTS! \n`)
+//       count++
+//       attempts--
+//     }
+//     if (attempts === 0) {
+//       console.log('you have been logged out, come back later')
+//     }
+//   }
+//   return pinValidated
+// }
+// // validatePin(pin)
+
+
+
+
+
+// TODO simplify validatePin
 // ! validatePin
 function validatePin(userPin) {
   let pinValidated = false
@@ -106,7 +139,17 @@ function validatePin(userPin) {
   let attempts = 2
 
   while (count < 3) {
-  let inputPin = parseInt(prompt('what is your pin? '))
+  let inputPin = parseInt(prompt(`\n
+  _________________________________\n
+ |   ### Welcome to the atm! ###   |\n
+ |Please enter your pin to continue|\n
+ |_________________________________|\n\n
+ |                                 |\n
+ |     #      #      #      #      |\n
+ |    (*)    (*)    (*)    (*)     |\n
+ |                                 |\n
+ |_________________________________|\n
+  `))
 
     if (inputPin == userPin) {
       console.log('thank you')
@@ -124,7 +167,9 @@ function validatePin(userPin) {
   }
   return pinValidated
 }
-// validatePin(pin)
+validatePin(pin)
+
+
 
 
 
@@ -134,19 +179,3 @@ module.exports = {
   deposit: deposit,
   validatePin: validatePin
 }
-
-
-
-// module.export = {
-//   balance: getBalance,
-//   withdraw: withdraw,
-//   deposit: deposit,
-//   validation: validatePin
-// }
-
-// module.export = {
-//   getBalance,
-//   withdraw,
-//   deposit,
-//   validatePin
-// }

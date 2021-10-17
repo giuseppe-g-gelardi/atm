@@ -3,9 +3,13 @@ const { getBalance, withdraw, deposit, validatePin } = require('./atm')
 const { balance, pin } = require('./account')
 
 
-
-
 function app() {
+  validatePin()
+}
+app()
+
+function mainMenu() {
+  console.clear()
   console.log(`\n
    _________________________________\n
   |   ### Welcome to the atm! ###   |\n
@@ -14,6 +18,7 @@ function app() {
   |  Enter 1 to check your balance  |\n
   |  Enter 2 to deposit funds       |\n
   |  Enter 3 to withdraw funds      |\n
+  |  Enter 4 to end transaction     |\n
   |_________________________________|\n
   `)
 
@@ -22,12 +27,15 @@ function app() {
 
   switch(userChoice) {
     case 1:
+      console.clear()
       getBalance(balance)
       break;
     case 2:
+      console.clear()
       deposit(balance)
       break;
     case 3:
+      console.clear()
       withdraw(balance)
       break;
     default:
@@ -35,7 +43,7 @@ function app() {
   }
 }
 
-app()
+// mainMenu()
 
 
 // let accountBalance = balance
