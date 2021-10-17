@@ -36,8 +36,19 @@ function mainMenu() {
   switch(userChoice) {
     case 1:
       console.clear()
-      getBalance(balance)
+      let displayBalance = getBalance(balance)
+        if (displayBalance === 1) {
+          return mainMenu()
+        } else if (displayBalance === 2) {
+          console.log('have a nice day!')
+          break;
+        } else {
+          console.log('invalid input, please try again')
+          displayBalance
+        }
+      mainMenu()
       break;
+      
     case 2:
       console.clear()
       deposit(balance)
@@ -54,16 +65,4 @@ function mainMenu() {
       app()
   }
 }
-
-// mainMenu()
-
-
-// let accountBalance = balance
-// console.log(accountBalance)
-
-// let withdrawMoney = withdraw
-// console.log(withdrawMoney)
-
-// let depositMoney = deposit
-// console.log(depositMoney)
 

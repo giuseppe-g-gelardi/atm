@@ -7,11 +7,22 @@ const { wallet } = require('./wallet')
 
 
 function getBalance(accountBalance) {
-  // console.log(accountBalance)
-  // return accountBalance
-
   console.log(`Your account balance is $${accountBalance}`)
-  mainMenu()
+  console.log(`
+  Press 1 to return to the main menu
+  Press 2 to exit`)
+
+  let userInput = prompt()
+  let userChoice = parseInt(userInput)
+
+  if (userChoice === 1) {
+    return 1
+  } else if (userChoice === 2) {
+    return 2
+  } else {
+    console.log('invalid input')
+  }
+
 }
 // getBalance(balance)
 
@@ -34,6 +45,7 @@ function withdraw(accountBalance) {
       transactionComplete = true
     }
   }
+  //
 
   while (!transactionComplete) {
     // edge case validating input to be only numbers
@@ -154,3 +166,4 @@ module.exports = {
 // |                                 |\n
 // |_________________________________|\n
 // `))
+//
