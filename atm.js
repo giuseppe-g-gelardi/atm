@@ -167,7 +167,7 @@ function validatePin(userPin) {
   }
   return pinValidated
 }
-validatePin(pin)
+// validatePin(pin)
 
 
 
