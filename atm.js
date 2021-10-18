@@ -73,7 +73,18 @@ function withdraw(accountBalance, walletAmount) {
     } 
 
   }
-  // return accountBalance
+
+  // !
+  if (transactionComplete === true) {
+    console.log('1 main menu, 2 quit')
+    let returnPrompt = prompt()
+    let returnChoice = parseInt(returnPrompt)
+
+    if (returnChoice === 1) {
+      return 1
+    } else
+    return 2
+  }
 }
 
 
@@ -116,8 +127,20 @@ function deposit(accountBalance, walletAmount) {
       deposit(balance, wallet)
     }
   }
+
   
-  // return accountBalance
+  // !
+  if (transactionComplete === true) {
+    console.log('1 main menu, 2 quit')
+    let returnPrompt = prompt()
+    let returnChoice = parseInt(returnPrompt)
+
+    if (returnChoice === 1) {
+      return 1
+    } else
+    return 2
+  }
+  
 }
 
 

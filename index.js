@@ -48,10 +48,6 @@ function mainMenu() {
           //   app()
           // }, 3000)
           break;
-        } else {
-          console.clear()
-          console.log('invalid input, please try again')
-          displayBalance
         }
       mainMenu()
       break;
@@ -60,18 +56,33 @@ function mainMenu() {
   // TODO add funds FROM wallet
     case 2:
       console.clear()
-      deposit(balance, wallet)
-      break;
+      let depositFunds = deposit(balance, wallet)
+      if (depositFunds === 1) {
+        return mainMenu()
+      } else if (depositFunds === 2) {
+        console.clear()
+        signOut()
+        break;
+      }
+    mainMenu()
+    break;
   // * case 3 will withdraw funds from users account
   // TODO TO the users wallet
     case 3:
       console.clear()
-      withdraw(balance, wallet)
-      break;
+      let withdrawFunds = withdraw(balance, wallet)
+      if (withdrawFunds === 1) {
+        return mainMenu()
+      } else if (withdrawFunds === 2) {
+        console.clear()
+        signOut()
+        break;
+      }
+    mainMenu()
+    break;
   // * case 4 will exit the program
     case 4:
       console.clear()
-      // console.log('have a nice day!')
       signOut()
       break;
   // * default will call app and reprompt user for their pin
