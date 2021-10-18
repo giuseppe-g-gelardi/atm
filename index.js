@@ -42,17 +42,8 @@ function mainMenu() {
           return mainMenu()
         } else if (displayBalance === 2) {
           console.clear()
-          console.log(`\n
-   _________________________________\n
-  |       ### Logging out ###       |\n
-  |                                 |\n
-  |_________________________________|\n
-  |                                 |\n
-  |                                 |\n
-  |        Have a great day!        |\n
-  |                                 |\n
-  |_________________________________|\n
-  `)
+          signOut()
+
           // setTimeout(() => {
           //   app()
           // }, 3000)
@@ -80,11 +71,26 @@ function mainMenu() {
   // * case 4 will exit the program
     case 4:
       console.clear()
-      console.log('have a nice day!')
+      // console.log('have a nice day!')
+      signOut()
       break;
   // * default will call app and reprompt user for their pin
     default:
       app()
   }
+}
+
+function signOut() {
+  console.log(`\n
+  _________________________________\n
+ |       ### Logging out ###       |\n
+ |                                 |\n
+ |_________________________________|\n
+ |                                 |\n
+ |                                 |\n
+ |        Have a great day!        |\n
+ |                                 |\n
+ |_________________________________|\n
+ `)
 }
 

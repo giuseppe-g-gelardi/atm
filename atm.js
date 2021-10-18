@@ -30,7 +30,6 @@ function getBalance(accountBalance) {
   }
 
 }
-// getBalance(balance)
 
 
 // ! withdraw
@@ -76,7 +75,6 @@ function withdraw(accountBalance, walletAmount) {
   }
   // return accountBalance
 }
-// withdraw(balance, wallet)
 
 
 
@@ -106,19 +104,21 @@ function deposit(accountBalance, walletAmount) {
     }
 
    //need to fix edge case if someone tried to deposit more than their wallet value
-    if (depositAmount < walletAmount) {
+    if (depositAmount <= walletAmount) {
       accountBalance += depositAmount
       walletAmount -= depositAmount
       console.log(`\nAdding ${depositAmount} to your account. 
       \nyour new balance is: ${accountBalance}\n`)
       console.log(`you now have $${walletAmount} in your wallet`)
       isComplete()
+    } else if (depositAmount > walletAmount) {
+      console.log('you dont have enough money to do that')
+      deposit(balance, wallet)
     }
   }
   
   // return accountBalance
 }
-// deposit(balance, wallet)
 
 
 
@@ -131,7 +131,7 @@ function validatePin(userPin) {
 
   while (count < 3) {
     console.log(`\n
-  _________________________________\n
+   _________________________________\n
   |   ### Welcome to the atm! ###   |\n
   |Please enter your pin to continue|\n
   |_________________________________|\n
@@ -187,7 +187,6 @@ function validatePin(userPin) {
   }
   return pinValidated
 }
-// validatePin(pin)
 
 
 
