@@ -6,7 +6,7 @@ const { wallet } = require('./wallet')
 
 function getBalance(accountBalance) {
 
-
+  console.clear()
   console.log(`\n
    _________________________________\n
   |      ### Welcome user ###       |\n
@@ -27,7 +27,6 @@ function getBalance(accountBalance) {
   } else if (userChoice === 2) {
     return 2
   } 
-
 }
 
 // ! withdraw
@@ -62,7 +61,6 @@ function withdraw(accountBalance, walletAmount) {
       transactionComplete = true
     }
   }
-  //
 
   while (!transactionComplete) {
     // edge case validating input to be only numbers
@@ -71,16 +69,9 @@ function withdraw(accountBalance, walletAmount) {
       withdraw(balance, wallet)
     }
 
-
     if (withdrawAmount <= accountBalance) {
       accountBalance -= withdrawAmount
       walletAmount += withdrawAmount
-
-
-      // console.log(`\ntaking ${withdrawAmount} from your account. 
-      // \nyour new balance is: ${accountBalance}\n`)
-      // console.log(`you now have $${walletAmount} in your wallet`)
-
 
       console.clear()
       console.log(`\n
@@ -95,18 +86,13 @@ function withdraw(accountBalance, walletAmount) {
   |_________________________________|\n
   `)
 
-
-
-
       isComplete()
     } else if (withdrawAmount > accountBalance) {
       console.log('insufficient funds')
       withdraw(balance, wallet)
     } 
-
   }
 
-  // !
   if (transactionComplete === true) {
 
     console.clear()
@@ -134,9 +120,6 @@ function withdraw(accountBalance, walletAmount) {
 // ! deposit()
 function deposit(accountBalance, walletAmount) {
   let transactionComplete = false
-
-  // console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to deposit?`)
-
 
   console.log(`\n
    _________________________________\n
@@ -175,8 +158,6 @@ function deposit(accountBalance, walletAmount) {
       accountBalance += depositAmount
       walletAmount -= depositAmount
 
-
-
     console.clear()
     console.log(`\n
    _________________________________\n
@@ -194,7 +175,7 @@ function deposit(accountBalance, walletAmount) {
       isComplete()
     } else if (depositAmount > walletAmount) {
       console.log('you dont have enough money to do that')
-
+      // console.clear()
       deposit(balance, wallet)
     }
   }
@@ -203,7 +184,6 @@ function deposit(accountBalance, walletAmount) {
   // !
   if (transactionComplete === true) {
 
-    // console.log('1 main menu, 2 quit')
     console.clear()
     console.log(`\n
    _________________________________\n
@@ -226,7 +206,6 @@ function deposit(accountBalance, walletAmount) {
     } else
     return 2
   }
-  
 }
 
 // ! validatePin
@@ -269,15 +248,12 @@ function validatePin(userPin) {
 |                                 |\n
 |_________________________________|\n
 `)
-      // console.log(`that is not the correct pin,\n \nyou have ${attempts} attempts left 
-      // \nYOU WILL BE LOCKED OUT AFTER 3 ATTEMPTS! \n`)
 
       count++
       attempts--
     }
     if (attempts === 0) {
       console.clear()
-      // console.log('you have been logged out, come back later')
       console.log(`\n
    _________________________________\n
   |       ### Invalid Pin ###       |\n
@@ -289,7 +265,6 @@ function validatePin(userPin) {
   |                                 |\n
   |_________________________________|\n
   `)
-
     }
   }
   return pinValidated
