@@ -1,6 +1,7 @@
 const prompt = require("prompt-sync")()
 const { getBalance, withdraw, deposit, validatePin } = require('./atm')
 const { balance, pin } = require('./account')
+const wallet = require ('./wallet')
 
 let validate = validatePin(pin)
 
@@ -28,7 +29,6 @@ function mainMenu() {
   |_________________________________|\n
   `)
 
-  // console.log('what would you like to do?')
 
   let userInput = prompt()
   let userChoice = parseInt(userInput)

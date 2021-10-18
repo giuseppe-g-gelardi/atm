@@ -6,13 +6,9 @@ const wallet = require('./wallet')
 // ! getBalance()
 
 function getBalance(accountBalance) {
-  // console.log(`Your account balance is $${accountBalance}`)
-  // console.log(`
-  // Press 1 to return to the main menu
-  // Press 2 to exit`)
 
   console.log(`\n
-  _________________________________\n
+   _________________________________\n
   |      ### Welcome user ###       |\n
   |        Account Balance          |\n
   |_________________________________|\n
@@ -22,11 +18,6 @@ function getBalance(accountBalance) {
   |  Enter 2 to exit                |\n
   |_________________________________|\n
   `)
-
-
-
-
-
 
   let userInput = prompt()
   let userChoice = parseInt(userInput)
@@ -199,18 +190,7 @@ module.exports = {
 
 
 
-// let inputPin = parseInt(prompt(`\n
-// _________________________________\n
-// |   ### Welcome to the atm! ###   |\n
-// |Please enter your pin to continue|\n
-// |_________________________________|\n\n
-// |                                 |\n
-// |     #      #      #      #      |\n
-// |    (*)    (*)    (*)    (*)     |\n
-// |                                 |\n
-// |_________________________________|\n
-// `))
-//
+
 
 
 
