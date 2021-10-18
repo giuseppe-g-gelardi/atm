@@ -6,6 +6,7 @@ const { wallet } = require('./wallet')
 
 function getBalance(accountBalance) {
 
+
   console.log(`\n
    _________________________________\n
   |      ### Welcome user ###       |\n
@@ -25,19 +26,30 @@ function getBalance(accountBalance) {
     return 1
   } else if (userChoice === 2) {
     return 2
-  } else {
-    console.log('invalid input')
-  }
+  } 
 
 }
-
 
 // ! withdraw
 
 function withdraw(accountBalance, walletAmount) {
   let transactionComplete = false
 
-  console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to withdraw?`)
+  // console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to withdraw?`)
+
+  console.log(`\n
+   _________________________________\n
+  |     ### Withdraw funds! ###     |\n
+  |     $$$                 $$$     |\n
+  |_________________________________|\n
+  |  Your account balance is $${accountBalance}  |\n
+  |                                 |\n
+  | How much would you like         |\n
+  |                    to withdraw? |\n
+  |_________________________________|\n
+  `)
+
+
   let userInput = prompt()
   let withdrawAmount = parseInt(userInput)
 
@@ -63,9 +75,29 @@ function withdraw(accountBalance, walletAmount) {
     if (withdrawAmount <= accountBalance) {
       accountBalance -= withdrawAmount
       walletAmount += withdrawAmount
-      console.log(`\ntaking ${withdrawAmount} from your account. 
-      \nyour new balance is: ${accountBalance}\n`)
-      console.log(`you now have $${walletAmount} in your wallet`)
+
+
+      // console.log(`\ntaking ${withdrawAmount} from your account. 
+      // \nyour new balance is: ${accountBalance}\n`)
+      // console.log(`you now have $${walletAmount} in your wallet`)
+
+
+      console.clear()
+      console.log(`\n
+   _________________________________\n
+  |     ### Withdraw funds! ###     |\n
+  |                                 |\n
+  |_________________________________|\n
+  |Taking ${withdrawAmount} from your account.    |\n
+  |  your new balance is: ${accountBalance}       |\n
+  |                                 |\n
+  |you now have $${walletAmount} in your wallet |\n
+  |_________________________________|\n
+  `)
+
+
+
+
       isComplete()
     } else if (withdrawAmount > accountBalance) {
       console.log('insufficient funds')
@@ -76,7 +108,19 @@ function withdraw(accountBalance, walletAmount) {
 
   // !
   if (transactionComplete === true) {
-    console.log('1 main menu, 2 quit')
+
+    console.clear()
+    console.log(`\n
+   _________________________________\n
+  |  ### Transaction complete ###   |\n
+  |                                 |\n
+  |_________________________________|\n
+  |           Thank you             |\n
+  |                                 |\n
+  |  Enter 1 for the Main Menu      |\n
+  |  Enter 2 to exit                |\n
+  |_________________________________|\n
+  `)
     let returnPrompt = prompt()
     let returnChoice = parseInt(returnPrompt)
 
@@ -87,13 +131,25 @@ function withdraw(accountBalance, walletAmount) {
   }
 }
 
-
-
 // ! deposit()
 function deposit(accountBalance, walletAmount) {
   let transactionComplete = false
 
-  console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to deposit?`)
+  // console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to deposit?`)
+
+
+  console.log(`\n
+   _________________________________\n
+  |     ### Deposit  funds! ###     |\n
+  |                                 |\n
+  |_________________________________|\n
+  |  Your wallet balance is $${wallet}    |\n
+  |                                 |\n
+  | How much would you like         |\n
+  |                    to deposit?? |\n
+  |_________________________________|\n
+  `)
+
   let userInput = prompt()
   let depositAmount = parseInt(userInput)
 
@@ -118,12 +174,27 @@ function deposit(accountBalance, walletAmount) {
     if (depositAmount <= walletAmount) {
       accountBalance += depositAmount
       walletAmount -= depositAmount
-      console.log(`\nAdding ${depositAmount} to your account. 
-      \nyour new balance is: ${accountBalance}\n`)
-      console.log(`you now have $${walletAmount} in your wallet`)
+
+
+
+    console.clear()
+    console.log(`\n
+   _________________________________\n
+  |     ### Deposit  funds! ###     |\n
+  |                                 |\n
+  |_________________________________|\n
+  |Taking ${depositAmount} from your account.    |\n
+  |  your new balance is: ${accountBalance}       |\n
+  |                                 |\n
+  |you now have $${walletAmount} in your wallet |\n
+  |_________________________________|\n
+  `)
+
+
       isComplete()
     } else if (depositAmount > walletAmount) {
       console.log('you dont have enough money to do that')
+
       deposit(balance, wallet)
     }
   }
@@ -131,7 +202,22 @@ function deposit(accountBalance, walletAmount) {
   
   // !
   if (transactionComplete === true) {
-    console.log('1 main menu, 2 quit')
+
+    // console.log('1 main menu, 2 quit')
+    console.clear()
+    console.log(`\n
+   _________________________________\n
+  |  ### Transaction complete ###   |\n
+  |                                 |\n
+  |_________________________________|\n
+  |           Thank you             |\n
+  |                                 |\n
+  |  Enter 1 for the Main Menu      |\n
+  |  Enter 2 to exit                |\n
+  |_________________________________|\n
+  `)
+
+
     let returnPrompt = prompt()
     let returnChoice = parseInt(returnPrompt)
 
@@ -142,8 +228,6 @@ function deposit(accountBalance, walletAmount) {
   }
   
 }
-
-
 
 // ! validatePin
 function validatePin(userPin) {
@@ -211,14 +295,12 @@ function validatePin(userPin) {
   return pinValidated
 }
 
-
-
-
-
 module.exports = {
   getBalance: getBalance,
   withdraw: withdraw,
   deposit: deposit,
   validatePin: validatePin
 }
+
+
 

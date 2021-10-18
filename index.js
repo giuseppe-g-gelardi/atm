@@ -53,7 +53,6 @@ function mainMenu() {
       break;
 
   // * case 2 will deposit funds into the users account
-  // TODO add funds FROM wallet
     case 2:
       console.clear()
       let depositFunds = deposit(balance, wallet)
@@ -67,7 +66,6 @@ function mainMenu() {
     mainMenu()
     break;
   // * case 3 will withdraw funds from users account
-  // TODO TO the users wallet
     case 3:
       console.clear()
       let withdrawFunds = withdraw(balance, wallet)
