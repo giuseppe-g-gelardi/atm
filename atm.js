@@ -84,6 +84,7 @@ function deposit(accountBalance) {
   let userInput = prompt()
   let depositAmount = parseInt(userInput)
 
+  // function called to break out of the loop and return to the main menu
   function isComplete(){
     console.log(`\nType "done" to complete transaction\n`)
     let isCompletePrompt = prompt()
@@ -127,23 +128,7 @@ function validatePin(userPin) {
   let count = 0
   let attempts = 2
 
-//   let pinPromptMessage = `\n
-// _________________________________\n
-// |   ### Welcome to the atm! ###   |\n
-// |Please enter your pin to continue|\n
-// |_________________________________|\n\n
-// |                                 |\n
-// |     #      #      #      #      |\n
-// |    (*)    (*)    (*)    (*)     |\n
-// |                                 |\n
-// |_________________________________|\n
-// `
-
-
-
-
   while (count < 3) {
-  // let inputPin = parseInt(prompt(`Please enter your pin: `))
   console.log(`\n
   _________________________________\n
   |   ### Welcome to the atm! ###   |\n
@@ -164,8 +149,21 @@ function validatePin(userPin) {
       pinValidated = true;
       break;
     } else {
-      console.log(`that is not the correct pin,\n \nyou have ${attempts} attempts left 
-      \nYOU WILL BE LOCKED OUT AFTER 3 ATTEMPTS! \n`)
+      console.clear()
+      console.log(`\n
+ _________________________________\n
+|   ### Welcome to the atm! ###   |\n
+|Please enter your pin to continue|\n
+|_________________________________|\n
+|  That is not the correct pin!!  |\n
+|                                 |\n
+|  You only have ${attempts} attempts left  |\n
+|                                 |\n
+|_________________________________|\n
+`)
+      // console.log(`that is not the correct pin,\n \nyou have ${attempts} attempts left 
+      // \nYOU WILL BE LOCKED OUT AFTER 3 ATTEMPTS! \n`)
+
       count++
       attempts--
     }
@@ -204,5 +202,19 @@ module.exports = {
 // |                ${accountBalance}                 |\n
 // |  Enter 1 for the Main Menu      |\n
 // |  Enter 2 to exit                |\n
+// |_________________________________|\n
+// `)
+
+
+
+// console.log(`\n
+//  _________________________________\n
+// |   ### Welcome to the atm! ###   |\n
+// |Please enter your pin to continue|\n
+// |_________________________________|\n
+// |  That is not the correct pin!!  |\n
+// |      You have 3 attempts        |\n
+// |                                 |\n
+// |You have ${attempts} left                   |\n
 // |_________________________________|\n
 // `)
