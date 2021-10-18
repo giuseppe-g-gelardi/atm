@@ -13,7 +13,7 @@ function getBalance(accountBalance) {
   |        Account Balance          |\n
   |_________________________________|\n
   |    Your account balance is:     |\n
-  |               $${accountBalance}             |\n
+  |              $${accountBalance}              |\n
   |  Enter 1 for the Main Menu      |\n
   |  Enter 2 to exit                |\n
   |_________________________________|\n

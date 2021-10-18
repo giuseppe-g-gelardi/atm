@@ -41,9 +41,21 @@ function mainMenu() {
         if (displayBalance === 1) {
           return mainMenu()
         } else if (displayBalance === 2) {
-          console.log('have a nice day!')
+          console.clear()
+          console.log(`\n
+   _________________________________\n
+  |       ### Logging out ###       |\n
+  |                                 |\n
+  |_________________________________|\n
+  |                                 |\n
+  |                                 |\n
+  |        Have a great day!        |\n
+  |                                 |\n
+  |_________________________________|\n
+  `)
           break;
         } else {
+          console.clear()
           console.log('invalid input, please try again')
           displayBalance
         }
