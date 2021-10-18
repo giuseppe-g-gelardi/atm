@@ -53,12 +53,9 @@ function mainMenu() {
   |                                 |\n
   |_________________________________|\n
   `)
-          setTimeout(() => {
-            if (validate) {
-              !validate
-            }
-            app()
-          }, 3000)
+          // setTimeout(() => {
+          //   app()
+          // }, 3000)
           break;
         } else {
           console.clear()

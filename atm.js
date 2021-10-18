@@ -70,27 +70,8 @@ function withdraw(accountBalance, walletAmount) {
       isComplete()
     } else if (withdrawAmount > accountBalance) {
       console.log('insufficient funds')
+      withdraw(balance, wallet)
     } 
-
-    
-
-
-
-
-
-    // if (withdrawAmount <= accountBalance) {
-    //   accountBalance -= withdrawAmount
-    //   console.log(`\ntaking ${withdrawAmount} from your account. 
-    //   \nyour new balance is: ${accountBalance}\n`)
-    //   isComplete()
-    // } else if (withdrawAmount > accountBalance) {
-    //   console.log('insufficient funds')
-    // } 
-
-
-
-
-
 
   }
   // return accountBalance
@@ -134,21 +115,6 @@ function deposit(accountBalance, walletAmount) {
       isComplete()
     }
   }
-
-
-
-
-    // if (depositAmount >= 0) {
-    //   accountBalance = accountBalance + depositAmount
-    //   console.log(`\nAdding ${depositAmount} to your account. 
-    //   \nyour new balance is: ${accountBalance}\n`)
-    //   isComplete()
-    // }
-
- 
-
-
-
   
   // return accountBalance
 }
@@ -164,7 +130,7 @@ function validatePin(userPin) {
   let attempts = 2
 
   while (count < 3) {
-  console.log(`\n
+    console.log(`\n
   _________________________________\n
   |   ### Welcome to the atm! ###   |\n
   |Please enter your pin to continue|\n
@@ -203,7 +169,20 @@ function validatePin(userPin) {
       attempts--
     }
     if (attempts === 0) {
-      console.log('you have been logged out, come back later')
+      console.clear()
+      // console.log('you have been logged out, come back later')
+      console.log(`\n
+   _________________________________\n
+  |       ### Invalid Pin ###       |\n
+  |                                 |\n
+  |_________________________________|\n
+  |                                 |\n
+  |    You have been logged out     |\n
+  |         Try again later         |\n
+  |                                 |\n
+  |_________________________________|\n
+  `)
+
     }
   }
   return pinValidated
@@ -221,35 +200,3 @@ module.exports = {
   validatePin: validatePin
 }
 
-
-
-
-
-
-
-
-// console.log(`\n
-// _________________________________\n
-// |      ### Welcome user ###       |\n
-// |        Account Balance          |\n
-// |_________________________________|\n
-// |    Your account balance is:     |\n
-// |                ${accountBalance}                 |\n
-// |  Enter 1 for the Main Menu      |\n
-// |  Enter 2 to exit                |\n
-// |_________________________________|\n
-// `)
-
-
-
-// console.log(`\n
-//  _________________________________\n
-// |   ### Welcome to the atm! ###   |\n
-// |Please enter your pin to continue|\n
-// |_________________________________|\n
-// |  That is not the correct pin!!  |\n
-// |      You have 3 attempts        |\n
-// |                                 |\n
-// |You have ${attempts} left                   |\n
-// |_________________________________|\n
-// `)
