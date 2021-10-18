@@ -1,7 +1,7 @@
 const prompt = require("prompt-sync")()
 const { getBalance, withdraw, deposit, validatePin } = require('./atm')
 const { balance, pin } = require('./account')
-const wallet = require ('./wallet')
+const { wallet } = require ('./wallet')
 
 let validate = validatePin(pin)
 
@@ -72,13 +72,13 @@ function mainMenu() {
   // TODO add funds FROM wallet
     case 2:
       console.clear()
-      deposit(balance)
+      deposit(balance, wallet)
       break;
   // * case 3 will withdraw funds from users account
   // TODO TO the users wallet
     case 3:
       console.clear()
-      withdraw(balance)
+      withdraw(balance, wallet)
       break;
   // * case 4 will exit the program
     case 4:

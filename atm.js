@@ -1,7 +1,6 @@
 const prompt = require('prompt-sync')();
 const { balance, pin } = require('./account')
-const wallet = require('./wallet')
-
+const { wallet } = require('./wallet')
 
 // ! getBalance()
 
@@ -36,7 +35,7 @@ function getBalance(accountBalance) {
 
 // ! withdraw
 
-function withdraw(accountBalance) {
+function withdraw(accountBalance, walletAmount) {
   let transactionComplete = false
 
   console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to withdraw?`)
@@ -58,26 +57,50 @@ function withdraw(accountBalance) {
     // edge case validating input to be only numbers
     if (isNaN(userInput)) {
       console.log('invalid input, please enter only numbers')
-      withdraw(accountBalance)
+      withdraw(balance, wallet)
     }
+
 
     if (withdrawAmount <= accountBalance) {
       accountBalance -= withdrawAmount
+      walletAmount += withdrawAmount
       console.log(`\ntaking ${withdrawAmount} from your account. 
       \nyour new balance is: ${accountBalance}\n`)
+      console.log(`you now have $${walletAmount} in your wallet`)
       isComplete()
     } else if (withdrawAmount > accountBalance) {
       console.log('insufficient funds')
     } 
+
+    
+
+
+
+
+
+    // if (withdrawAmount <= accountBalance) {
+    //   accountBalance -= withdrawAmount
+    //   console.log(`\ntaking ${withdrawAmount} from your account. 
+    //   \nyour new balance is: ${accountBalance}\n`)
+    //   isComplete()
+    // } else if (withdrawAmount > accountBalance) {
+    //   console.log('insufficient funds')
+    // } 
+
+
+
+
+
+
   }
-  return accountBalance
+  // return accountBalance
 }
-// withdraw(balance)
+// withdraw(balance, wallet)
 
 
 
 // ! deposit()
-function deposit(accountBalance) {
+function deposit(accountBalance, walletAmount) {
   let transactionComplete = false
 
   console.log(`\nYour account balance is $${accountBalance}\nHow much would you like to deposit?`)
@@ -98,26 +121,38 @@ function deposit(accountBalance) {
     // edge case validating input to be only numbers
     if (isNaN(userInput)) {
       console.log('invalid input, please enter only numbers')
-      deposit(accountBalance)
+      deposit(balance, wallet)
     }
 
-    if (depositAmount >= 0) {
-      accountBalance = accountBalance + depositAmount
+   //need to fix edge case if someone tried to deposit more than their wallet value
+    if (depositAmount < walletAmount) {
+      accountBalance += depositAmount
+      walletAmount -= depositAmount
       console.log(`\nAdding ${depositAmount} to your account. 
       \nyour new balance is: ${accountBalance}\n`)
+      console.log(`you now have $${walletAmount} in your wallet`)
       isComplete()
     }
+  }
 
-    // if (depositAmount > onHand) {
-    //   console.log('you do not have enough money')
+
+
+
+    // if (depositAmount >= 0) {
+    //   accountBalance = accountBalance + depositAmount
+    //   console.log(`\nAdding ${depositAmount} to your account. 
+    //   \nyour new balance is: ${accountBalance}\n`)
+    //   isComplete()
     // }
 
+ 
 
 
-  }
-  return accountBalance
+
+  
+  // return accountBalance
 }
-// deposit(balance)
+// deposit(balance, wallet)
 
 
 
